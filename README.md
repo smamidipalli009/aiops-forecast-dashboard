@@ -2,7 +2,7 @@
 
 Predictive monitoring for Windows host metrics. Forecasts CPU, memory, and disk usage 6/24/72 hours ahead using time-series ML, enabling alerts to fire *before* a threshold is breached rather than after.
 
-![Dashboard Screenshot](docs/dashboard-screenshot.png)
+![Dashboard Screenshot](docs/screenshots/dashboard.png)
 
 ## Why this exists
 
