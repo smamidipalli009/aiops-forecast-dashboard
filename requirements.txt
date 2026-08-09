@@ -1,0 +1,4 @@
+prophet
+pandas
+requests
+prometheus-client

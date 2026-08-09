@@ -1,0 +1,38 @@
+groups:
+  - name: forecast_alerts
+    rules:
+      - alert: CPUForecastBreach
+        expr: cpu_forecast_pct{horizon="24h"} > 80
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU predicted to exceed 80% within 24h"
+          description: "24h CPU forecast is {{ $value | printf \"%.1f\" }}%, above the 80% threshold."
+
+      - alert: MemoryForecastBreach
+        expr: memory_forecast_pct{horizon="24h"} > 90
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Memory predicted to exceed 90% within 24h"
+          description: "24h memory forecast is {{ $value | printf \"%.1f\" }}%, above the 90% threshold."
+
+      - alert: DiskEForecastBreach
+        expr: disk_e_forecast_pct{horizon="24h"} > 90
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk E: predicted to exceed 90% within 24h"
+          description: "24h forecast for Disk E: is {{ $value | printf \"%.1f\" }}%, above the 90% threshold."
+
+      - alert: DiskFForecastBreach
+        expr: disk_f_forecast_pct{horizon="24h"} > 90
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk F: predicted to exceed 90% within 24h"
+          description: "24h forecast for Disk F: is {{ $value | printf \"%.1f\" }}%, above the 90% threshold."
